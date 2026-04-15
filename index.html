@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>my first ever website</title>
+    <link rel = "icon" href ="Cute Kitten Pics.jpg">
     <style>
         body {
             background-color:rgb(255, 255, 255);
@@ -11,7 +12,7 @@
             padding: 20px;
         }
         .container {
-            text-align: left; 
+            text-align: center; 
             padding: 20px;
         }
         h1 {
@@ -25,7 +26,8 @@
             width: 300px;
             height: 300px;
             color: rgb(255, 255, 255);
-            font-size: 30px;
+            font-size: 40px;
+            transition: opacity 0.5s; /* Smooth fade effect */
         }
         p {
             color:black;
@@ -36,7 +38,7 @@
             font-size: 30px;
         }
         img {
-            width: 20%;
+            width: 50%;
             border-radius: 10px;
         }
         button {
@@ -53,14 +55,64 @@
 <body>
     <div class="container">
         <h1>The first website i ever create </h1>
-        <box>ខ្ញុំឈ្មោះ​​ ហេង</box>
+        <box>ខ្ញុំឈ្មោះ​​ ហេង​ ហៅក្រៅអាសក់បះ</box>
         <p>មើលតាមុខក៏ដឹងថាជក់ដែរ​ ហាហាហរ!</p>
-        <p1>នេះជារួបរបស់ខ្ញុំបាទ.</p1>
+        <p1>នេះជារូបរបស់ខ្ញុំបាទ.</p1>
         <p1><br>ថតចេញពី​​ 17 promax.<br></p1>
         <a href="https://www.google.com" target="blank">
             <img src="WIN_20260401_15_56_33_Pro.jpg">
         </a><br>
-        <button onclick="alert('Heng zin two')">សាកចុចមើរ!</button>
+        <button onclick="changeText()">សាកចុចមើរ!</button>
     </div>
+    <script>
+        let texts = [
+            "ជាក្មេង​ JO",
+            "ជាក្មេងញៀនល្បែងក្នុងភូមិព្រែកនូ",
+            "ជាក្មេងបាតសង្គម",
+            "ជាក្មេងដែលស្រឡាញ់គេម្នាក់ឯង",
+            "អរគុណដែលបានអាន!",
+        ];
+
+        let index = 0;
+
+        function changeText() {
+            const box = document.querySelector('box');
+
+            box.style.opacity = 0;  // hide 
+
+            setTimeout(() => {
+                box.textContent = texts[index];
+                box.style.opacity = 1;  // show
+
+                index++;
+                if (index < texts.length) {
+                    setTimeout(changeText, 7000); // the number wait before changing to the next text
+                }// if use index = 0 need to click to show next index
+            }, 500); // this number is wait for how long the text will change in millisecond 1000ms = 1s
+        }
+
+        /*let texts = [     //array
+            "ជាក្មេង​ JO",
+            "ជាបិតាល្បែងក្នុងភូមិព្រែកនូ",
+            "និ​ង​ ជាក្មេងបាតសង្គម",
+            "អរគុណដែលបានអាន!"
+        ];
+        let index = 0;    // which text you are showing first 0 1 2 ...
+        function changeText() {
+            const box = document.querySelector('box'); // select element (box,..)
+            box.textContent = texts[index]; // change text to the one in array
+
+            index++;
+            if (index >= texts.length) {  // pel loop dol last text then loop back to first text
+                index = 0; // loop back
+            }
+        }*/
+        /*function changeText() {
+            const box = document.querySelector('box');
+            box.textContent = "សួស្តី! ខ្ញុំជាអ្នកបង្កើតវេបសាយនេះ។";
+            
+        }*/
+    </script>
+
 </body>
 </html>
